@@ -38,3 +38,14 @@ public class LoginTest {
     public void testCheckPasswordComplexityFailure() {
         assertFalse(login.checkPasswordComplexity("password"));
     }
+    
+    // --- Cell Phone Tests ---
+    @Test
+    public void testCheckCellPhoneNumberSuccess() {
+        assertTrue(login.checkCellPhoneNumber("+27838968976"));
+    }
+
+    @Test
+    public void testCheckCellPhoneNumberFailure() {
+        assertFalse(login.checkCellPhoneNumber("08966553"));
+    }
