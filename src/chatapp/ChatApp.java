@@ -27,6 +27,25 @@ public class ChatApp {
         Login appLogin = new Login(firstName, lastName);
 
         String username, password, cellPhone, registrationMessage;
+        
+        // Loop registration until valid inputs are provided
+        while (true) {
+            System.out.print("Enter Username (must contain '_' and <= 5 chars): ");
+            username = scanner.nextLine();
+
+            System.out.print("Enter Password: ");
+            password = scanner.nextLine();
+
+            System.out.print("Enter Cell Phone Number (e.g. +27838968976): ");
+            cellPhone = scanner.nextLine();
+
+            registrationMessage = appLogin.registerUser(username, password, cellPhone, firstName, lastName);
+            System.out.println("\n" + registrationMessage + "\n");
+
+            if (registrationMessage.contains("Username successfully captured")) {
+                break;
+            }
+        }
     }
     
 }
