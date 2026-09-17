@@ -62,3 +62,18 @@ public class LoginTest {
         login.registerUser("kyl_1", "Ch&&sec@ke99!", "+27838968976", "Kyl", "1");
         assertFalse(login.loginUser("kyl_1", "wrongpassword"));
     }
+    
+    // --- Status String Response Tests ---
+    @Test
+    public void testReturnLoginStatusSuccess() {
+        login.registerUser("kyl_1", "Ch&&sec@ke99!", "+27838968976", "Kyl", "1");
+        String status = login.returnLoginStatus(true);
+        assertEquals("Welcome Kyl ,1 it is great to see you.", status);
+    }
+
+    @Test
+    public void testReturnLoginStatusFailure() {
+        String status = login.returnLoginStatus(false);
+        assertEquals("Username or password incorrect, please try again.", status);
+    }
+}
