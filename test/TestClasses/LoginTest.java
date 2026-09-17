@@ -4,9 +4,11 @@
  */
 package TestClasses;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import chatapp.Login;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 public class LoginTest {
 
@@ -14,18 +16,18 @@ public class LoginTest {
 
     @Before
     public void setUp() {
-        login = new Login("Kyl", "1");
+        login = new Login("Lee", "1");
     }
     
     // --- Username Tests ---
     @Test
     public void testCheckUserNameCorrectlyFormatted() {
-        assertTrue(login.checkUserName("kyl_1"));
+        assertTrue(login.checkUserName("lee_1"));
     }
 
     @Test
     public void testCheckUserNameIncorrectlyFormatted() {
-        assertFalse(login.checkUserName("kyle!!!!!!!"));
+        assertFalse(login.checkUserName("lee!!!!!!!"));
     }
     
     // --- Password Tests ---
