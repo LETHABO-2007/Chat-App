@@ -49,3 +49,10 @@ public class LoginTest {
     public void testCheckCellPhoneNumberFailure() {
         assertFalse(login.checkCellPhoneNumber("08966553"));
     }
+    
+    // --- Login Authentication Tests ---
+    @Test
+    public void testLoginUserSuccess() {
+        login.registerUser("kyl_1", "Ch&&sec@ke99!", "+27838968976", "Kyl", "1");
+        assertTrue(login.loginUser("kyl_1", "Ch&&sec@ke99!"));
+    }
