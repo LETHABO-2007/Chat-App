@@ -59,7 +59,6 @@ public class ChatApp {
 
         scanner.close();
     }
-    
 }
 
 /**
@@ -87,3 +86,28 @@ public class Login {
     public boolean checkUserName(String username) {
         return username != null && username.contains("_") && username.length() <= 5;
     }
+    // Checks password complexity: >= 8 chars, at least 1 uppercase, 1 digit, 1 special char
+    public boolean checkPasswordComplexity(String password) {
+        if (password == null || password.length() < 8) {
+            return false;
+        }
+
+        boolean hasCapital = false;
+        boolean hasNumber = false;
+        boolean hasSpecial = false;
+
+        for (char ch : password.toCharArray()) {
+            if (Character.isUpperCase(ch)) {
+                hasCapital = true;
+            } else if (Character.isDigit(ch)) {
+                hasNumber = true;
+            } else if (!Character.isLetterOrDigit(ch)) {
+                hasSpecial = true;
+            }
+        }
+
+        return hasCapital && hasNumber && hasSpecial;
+    }
+    
+    
+}
