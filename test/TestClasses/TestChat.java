@@ -16,3 +16,14 @@ public class LoginTest {
     public void setUp() {
         login = new Login("Kyl", "1");
     }
+    
+    // --- Username Tests ---
+    @Test
+    public void testCheckUserNameCorrectlyFormatted() {
+        assertTrue(login.checkUserName("kyl_1"));
+    }
+
+    @Test
+    public void testCheckUserNameIncorrectlyFormatted() {
+        assertFalse(login.checkUserName("kyle!!!!!!!"));
+    }
