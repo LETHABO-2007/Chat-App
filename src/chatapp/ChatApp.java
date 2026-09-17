@@ -144,4 +144,12 @@ public class Login {
 
         return "Username successfully captured.\nPassword successfully captured.\nCell number successfully captured.";
     }
+    
+    // Verifies entered credentials against stored user details
+    public boolean loginUser(String enteredUsername, String enteredPassword) {
+        if (this.username == null || this.password == null) {
+            return false;
+        }
+        return this.username.equals(enteredUsername) && this.password.equals(enteredPassword);
+    }
 }
