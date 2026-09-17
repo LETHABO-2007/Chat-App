@@ -119,4 +119,17 @@ public class Login {
         String phoneRegex = "^\\+27[0-9]{9,10}$";
         return cellPhoneNumber.matches(phoneRegex);
     }
+    // Register user method returning validation status string
+    public String registerUser(String username, String password, String cellPhoneNumber, String firstName, String lastName) {
+        if (!checkUserName(username)) {
+            return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
+        }
+        
+        if (!checkPasswordComplexity(password)) {
+            return "Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.";
+        }
+
+        if (!checkCellPhoneNumber(cellPhoneNumber)) {
+            return "Cell number is incorrectly formatted or does not contain an international code; please correct the number and try again.";
+        }
 }
