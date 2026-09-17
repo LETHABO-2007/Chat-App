@@ -20,6 +20,13 @@ public class ChatApp {
         System.out.println("=== USER REGISTRATION ===");
         System.out.print("Enter First Name: ");
         String firstName = scanner.nextLine();
+        
+        System.out.print("Enter Last Name: ");
+        String lastName = scanner.nextLine();
+
+        Login appLogin = new Login(firstName, lastName);
+
+        String username, password, cellPhone, registrationMessage;
     }
     
 }
