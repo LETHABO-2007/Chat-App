@@ -56,3 +56,9 @@ public class LoginTest {
         login.registerUser("kyl_1", "Ch&&sec@ke99!", "+27838968976", "Kyl", "1");
         assertTrue(login.loginUser("kyl_1", "Ch&&sec@ke99!"));
     }
+    
+    @Test
+    public void testLoginUserFailure() {
+        login.registerUser("kyl_1", "Ch&&sec@ke99!", "+27838968976", "Kyl", "1");
+        assertFalse(login.loginUser("kyl_1", "wrongpassword"));
+    }
