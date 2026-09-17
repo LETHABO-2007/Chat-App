@@ -61,3 +61,24 @@ public class ChatApp {
     }
     
 }
+
+/**
+ * Login class handling validation rules and user authentication.
+ */
+public class Login {
+    
+    // Attributes to store registered user details
+    private String username;
+    private String password;
+    private String cellPhoneNumber;
+    private String firstName;
+    private String lastName;
+
+    // Constructors
+    public Login() {
+    }
+
+    public Login(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
