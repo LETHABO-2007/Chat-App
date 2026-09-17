@@ -86,6 +86,7 @@ public class Login {
     public boolean checkUserName(String username) {
         return username != null && username.contains("_") && username.length() <= 5;
     }
+    
     // Checks password complexity: >= 8 chars, at least 1 uppercase, 1 digit, 1 special char
     public boolean checkPasswordComplexity(String password) {
         if (password == null || password.length() < 8) {
@@ -119,6 +120,7 @@ public class Login {
         String phoneRegex = "^\\+27[0-9]{9,10}$";
         return cellPhoneNumber.matches(phoneRegex);
     }
+    
     // Register user method returning validation status string
     public String registerUser(String username, String password, String cellPhoneNumber, String firstName, String lastName) {
         if (!checkUserName(username)) {
@@ -132,4 +134,14 @@ public class Login {
         if (!checkCellPhoneNumber(cellPhoneNumber)) {
             return "Cell number is incorrectly formatted or does not contain an international code; please correct the number and try again.";
         }
+        
+        // Store credentials upon successful validation
+        this.username = username;
+        this.password = password;
+        this.cellPhoneNumber = cellPhoneNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+
+        return "Username successfully captured.\nPassword successfully captured.\nCell number successfully captured.";
+    }
 }
