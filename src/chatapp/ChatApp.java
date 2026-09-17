@@ -46,6 +46,18 @@ public class ChatApp {
                 break;
             }
         }
+        
+        System.out.println("=== USER LOGIN ===");
+        System.out.print("Enter Username: ");
+        String loginUser = scanner.nextLine();
+
+        System.out.print("Enter Password: ");
+        String loginPass = scanner.nextLine();
+
+        boolean isAuthenticated = appLogin.loginUser(loginUser, loginPass);
+        System.out.println(appLogin.returnLoginStatus(isAuthenticated));
+
+        scanner.close();
     }
     
 }
