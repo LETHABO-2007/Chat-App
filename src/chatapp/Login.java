@@ -103,7 +103,7 @@ public class Login {
     // Returns authentication status message
     public String returnLoginStatus(boolean isLoggedIn) {
         if (isLoggedIn) {
-            return "Welcome " + this.firstName + " ," + this.lastName + " it is great to see you.";
+            return "Welcome " + this.firstName + " " + this.lastName + " it is great to see you.";
         } else {
             return "Username or password incorrect, please try again.";
         }
