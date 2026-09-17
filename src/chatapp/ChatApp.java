@@ -109,5 +109,14 @@ public class Login {
         return hasCapital && hasNumber && hasSpecial;
     }
     
-    
+    // Regex check for South African cell phone format (+27 followed by digits, length <= 13 total)
+    // Reference: Java Regex Pattern Matching for International SA Standard (+27)
+    public boolean checkCellPhoneNumber(String cellPhoneNumber) {
+        if (cellPhoneNumber == null) {
+            return false;
+        }
+        // Regex pattern: Starts with +27 followed by 9 or 10 digits
+        String phoneRegex = "^\\+27[0-9]{9,10}$";
+        return cellPhoneNumber.matches(phoneRegex);
+    }
 }
