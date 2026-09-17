@@ -152,4 +152,13 @@ public class Login {
         }
         return this.username.equals(enteredUsername) && this.password.equals(enteredPassword);
     }
+    
+    // Returns authentication status message
+    public String returnLoginStatus(boolean isLoggedIn) {
+        if (isLoggedIn) {
+            return "Welcome " + this.firstName + " ," + this.lastName + " it is great to see you.";
+        } else {
+            return "Username or password incorrect, please try again.";
+        }
+    }
 }
