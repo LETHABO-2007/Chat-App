@@ -12,7 +12,7 @@ package chatapp;
  * Login class handling validation rules and user authentication.
  */
 public class Login {
-    
+
     // Attributes to store registered user details
     private String username;
     private String password;
@@ -125,5 +125,6 @@ public class Login {
     public String getLastName() { return lastName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
 }
+
 
 
