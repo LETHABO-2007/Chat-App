@@ -9,6 +9,7 @@ package chatapp;
  * @author TECH 1
  */
 
+import TestClasses.Message;
 import java.util.Scanner;
 
 public class QuickChatApp {

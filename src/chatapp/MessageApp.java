@@ -14,28 +14,42 @@ public class MessageApp {
 
     // Arrays to store message details across the system
     static String[] sentMessages = {
-       
+        "Did you get the cake?", 
+        "It is dinner time !"
     };
     
     static String[] disregardedMessages = {
-        
+        "Yohoooo, I am at your gate."
     };
     
     static String[] storedMessages = {
-        
+        "Where are you? You are late! I have asked you to be on time.", 
+        "Ok, I am leaving without you."
     };
     
     static String[] messageIDs = {
-        
+        "ID001", 
+        "ID002", 
+        "ID003", 
+        "ID004", 
+        "ID005"
     };
     
     static String[] messageHashes = {
-        
+        "HASH123", 
+        "HASH456", 
+        "HASH789", 
+        "HASH321", 
+        "HASH654"
     };
     
     // Corresponding recipients for testing and reporting
     static String[] recipients = {
-        
+        "+27834557896", 
+        "+27838884567", 
+        "+27834484567", 
+        "0838884567", 
+        "+27838884567"
     };
 
     public static void main(String[] args) {
@@ -109,30 +123,30 @@ public class MessageApp {
             System.out.println("\n----------------------------------------");
             System.out.println("       STORED MESSAGES SUB-MENU         ");
             System.out.println("----------------------------------------");
-            System.out.println("a. Display sender and recipient of all stored messages");
-            System.out.println("b. Display the longest stored message");
-            System.out.println("c. Search for a message ID and display recipient and message");
-            System.out.println("d. Search for all messages stored for a particular recipient");
-            System.out.println("e. Delete a message using the message hash");
-            System.out.println("f. Display a report listing full details of all stored messages");
-            System.out.println("g. Return to Main Menu");
-            System.out.print("Choose an option (a-g): ");
+            System.out.println("1. Display sender and recipient of all stored messages");
+            System.out.println("2. Display the longest stored message");
+            System.out.println("3. Search for a message ID and display recipient and message");
+            System.out.println("4. Search for all messages stored for a particular recipient");
+            System.out.println("5. Delete a message using the message hash");
+            System.out.println("6. Display a report listing full details of all stored messages");
+            System.out.println("7. Return to Main Menu");
+            System.out.print("Choose an option (1-7): ");
             
             String input = scanner.nextLine().trim().toLowerCase();
             if (input.isEmpty()) continue;
             subChoice = input.charAt(0);
 
             switch (subChoice) {
-                case 'a' -> displaySenderAndRecipient();
-                case 'b' -> displayLongestStoredMessage();
-                case 'c' -> searchByMessageID(scanner);
-                case 'd' -> searchByRecipient(scanner);
-                case 'e' -> deleteByMessageHash(scanner);
-                case 'f' -> displayFullReport();
-                case 'g' -> System.out.println("Returning to Main Menu...");
-                default -> System.out.println("Invalid option. Please choose between a and g.");
+                case 1 -> displaySenderAndRecipient();
+                case 2 -> displayLongestStoredMessage();
+                case 3 -> searchByMessageID(scanner);
+                case 4 -> searchByRecipient(scanner);
+                case 5 -> deleteByMessageHash(scanner);
+                case 6 -> displayFullReport();
+                case 7 -> System.out.println("Returning to Main Menu...");
+                default -> System.out.println("Invalid option. Please choose between 1 and 7.");
             }
-        } while (subChoice != 'g');
+        } while (subChoice != 7);
     }
 
     // Feature a: Display sender/recipient of stored messages
