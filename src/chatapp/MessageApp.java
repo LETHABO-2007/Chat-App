@@ -241,13 +241,14 @@ public class MessageApp {
 
     // Feature f: Display a report listing full details of all stored messages
     public static void displayFullReport() {
-        System.out.println("\n--- Full Stored Messages Report ---");[cite: 3]
-        for (int i = 0; i < storedMessages.length; i++) {
-            System.out.println("----------------------------------------");
-            System.out.println("Message Hash : " + (i < messageHashes.length ? messageHashes[i] : "N/A"));[cite: 3]
-            System.out.println("Recipient    : " + (i < recipients.length ? recipients[i] : "N/A"));[cite: 3]
-            System.out.println("Message      : " + storedMessages[i]);[cite: 3]
-        }
+        System.out.println("\n--- Full Stored Messages Report ---");
+for (int i = 0; i < storedMessages.length; i++) {
+    System.out.println("----------------------------------------");
+    System.out.println("Message Hash : " + (i < messageHashes.length ? messageHashes[i] : "N/A"));
+    System.out.println("Recipient    : " + (i < recipients.length ? recipients[i] : "N/A"));
+    System.out.println("Message      : " + storedMessages[i]);
+}     
         System.out.println("----------------------------------------");
     }
+    
 }
