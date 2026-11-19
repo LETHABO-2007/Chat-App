@@ -8,7 +8,7 @@ package chatapp;
  *
  * @author TECH 1
  */
-import TestClasses.Login;
+/*import TestClasses.Login;*/
  import java.util.Scanner;
 public class ChatApp {
 

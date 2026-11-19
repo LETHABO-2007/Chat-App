@@ -14,48 +14,48 @@ public class MessageApp {
 
     // Arrays to store message details across the system
     static String[] sentMessages = {
-        "Did you get the cake?", 
+        "Did you get the cake?",
         "It is dinner time !"
     };
-    
+
     static String[] disregardedMessages = {
         "Yohoooo, I am at your gate."
     };
-    
+
     static String[] storedMessages = {
-        "Where are you? You are late! I have asked you to be on time.", 
+        "Where are you? You are late! I have asked you to be on time.",
         "Ok, I am leaving without you."
     };
-    
+
     static String[] messageIDs = {
-        "ID001", 
-        "ID002", 
-        "ID003", 
-        "ID004", 
+        "ID001",
+        "ID002",
+        "ID003",
+        "ID004",
         "ID005"
     };
-    
+
     static String[] messageHashes = {
-        "HASH123", 
-        "HASH456", 
-        "HASH789", 
-        "HASH321", 
+        "HASH123",
+        "HASH456",
+        "HASH789",
+        "HASH321",
         "HASH654"
     };
-    
+
     // Corresponding recipients for testing and reporting
     static String[] recipients = {
-        "+27834557896", 
-        "+27838884567", 
-        "+27834484567", 
-        "0838884567", 
+        "+27834557896",
+        "+27838884567",
+        "+27834484567",
+        "0838884567",
         "+27838884567"
     };
 
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             int choice;
-            
+
             do {
                 System.out.println("\n========================================");
                 System.out.println("          MESSAGING APPLICATION          ");
@@ -66,14 +66,14 @@ public class MessageApp {
                 System.out.println("4. Stored Messages Menu (Part 3 Features)");
                 System.out.println("5. Exit");
                 System.out.print("Choose an option (1-5): ");
-                
+
                 while (!scanner.hasNextInt()) {
                     System.out.print("Invalid input. Please enter a number between 1 and 5: ");
                     scanner.next();
                 }
                 choice = scanner.nextInt();
                 scanner.nextLine(); // consume newline
-                
+
                 switch (choice) {
                     case 1 -> sendNewMessage(scanner);
                     case 2 -> displayArray("Sent Messages", sentMessages);
@@ -91,7 +91,7 @@ public class MessageApp {
         System.out.println("\n--- Send New Message ---");
         System.out.print("Enter recipient number: ");
         String recipient = scanner.nextLine();
-        
+
         System.out.print("Enter your message: ");
         String message = scanner.nextLine();
 
@@ -131,10 +131,14 @@ public class MessageApp {
             System.out.println("6. Display a report listing full details of all stored messages");
             System.out.println("7. Return to Main Menu");
             System.out.print("Choose an option (1-7): ");
-            
-            String input = scanner.nextLine().trim().toLowerCase();
+
+            String input = scanner.nextLine().trim();
             if (input.isEmpty()) continue;
-            subChoice = input.charAt(0);
+            try {
+                subChoice = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                subChoice = -1;
+            }
 
             switch (subChoice) {
                 case 1 -> displaySenderAndRecipient();
@@ -153,7 +157,7 @@ public class MessageApp {
     public static void displaySenderAndRecipient() {
         System.out.println("\n--- Sender & Recipient of Stored Messages ---");
         // Mapping stored messages indices (indexes 1 and 4 from test data correspond to stored items)
-        int[] storedIndices = {1, 4}; 
+        int[] storedIndices = {1, 4};
         for (int idx : storedIndices) {
             if (idx < recipients.length) {
                 System.out.println("Recipient: " + recipients[idx] + " | Message: " + sentMessages[Math.min(idx, sentMessages.length - 1)]);
@@ -174,7 +178,7 @@ public class MessageApp {
                 longest = msg;
             }
         }
-        System.out.println("\"" + longest + "\"");[cite: 3]
+        System.out.println("\"" + longest + "\"");
     }
 
     // Feature c: Search for a message ID and display corresponding recipient & message
@@ -191,7 +195,7 @@ public class MessageApp {
                 String matchingContent = (i < sentMessages.length) ? sentMessages[i] : "Stored Message Content";
                 System.out.println("Found! ID: " + messageIDs[i]);
                 System.out.println("Recipient: " + matchingRecipient);
-                System.out.println("Message: \"" + matchingContent + "\"");[cite: 3]
+                System.out.println("Message: \"" + matchingContent + "\"");
                 break;
             }
         }
@@ -212,7 +216,7 @@ public class MessageApp {
             if (recipients[i].equals(targetRecipient)) {
                 found = true;
                 String msgText = (i < storedMessages.length) ? storedMessages[i % storedMessages.length] : "Test message";
-                System.out.println("- \"" + msgText + "\"");[cite: 3]
+                System.out.println("- \"" + msgText + "\"");
             }
         }
         if (!found) {
@@ -230,7 +234,7 @@ public class MessageApp {
         for (String messageHashe : messageHashes) {
             if (messageHashe.equalsIgnoreCase(targetHash)) {
                 found = true;
-                System.out.println("Message: \"" + storedMessages[0] + "\" successfully deleted.");[cite: 3]
+                System.out.println("Message: \"" + storedMessages[0] + "\" successfully deleted.");
                 break;
             }
         }
@@ -242,13 +246,12 @@ public class MessageApp {
     // Feature f: Display a report listing full details of all stored messages
     public static void displayFullReport() {
         System.out.println("\n--- Full Stored Messages Report ---");
-for (int i = 0; i < storedMessages.length; i++) {
-    System.out.println("----------------------------------------");
-    System.out.println("Message Hash : " + (i < messageHashes.length ? messageHashes[i] : "N/A"));
-    System.out.println("Recipient    : " + (i < recipients.length ? recipients[i] : "N/A"));
-    System.out.println("Message      : " + storedMessages[i]);
-}     
+        for (int i = 0; i < storedMessages.length; i++) {
+            System.out.println("----------------------------------------");
+            System.out.println("Message Hash : " + (i < messageHashes.length ? messageHashes[i] : "N/A"));
+            System.out.println("Recipient    : " + (i < recipients.length ? recipients[i] : "N/A"));
+            System.out.println("Message      : " + storedMessages[i]);
+        }
         System.out.println("----------------------------------------");
     }
-    
 }

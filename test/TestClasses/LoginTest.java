@@ -13,10 +13,7 @@ public class LoginTest {
 
     private Login login;
 
-    @Before
-    public void setUp() {
-        login = new Login("Lee", "1");
-    }
+    
     
     // --- Username Tests ---
     @Test
